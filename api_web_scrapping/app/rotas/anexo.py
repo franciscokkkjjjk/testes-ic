@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from ..controllers import AnexoController 
+from controllers import anexo 
 
 router = APIRouter()
 
-router.include_router(router=AnexoController.router)
+router.include_router(router=anexo.router)
