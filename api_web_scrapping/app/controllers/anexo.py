@@ -1,8 +1,6 @@
 from fastapi import APIRouter, Response
 from bs4 import BeautifulSoup
-from zipfile import ZipFile
 from models.arquivo import Arquivo
-import os
 import requests
 
 router = APIRouter(
@@ -14,10 +12,9 @@ router = APIRouter(
 # endpoint responsavel por baixar e compactar os Anexo 1 e 2 na forma de pdf, e depois armazenar na maquina
 @router.get('/download')
 async def downloadAnexo(response: Response):
-    r = requests
     arquivo = Arquivo()
     
-    request_pagina = r.get('https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos')
+    request_pagina = requests.get('https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos')
     
     if request_pagina.status_code != 200: 
         return {
@@ -38,8 +35,9 @@ async def downloadAnexo(response: Response):
         url_anexo = link['href']
         caminho_absoluto_anexo = arquivo.download(url_anexo)  
         lista_de_caminhos_anexo.append(caminho_absoluto_anexo)
+        
     arquivo.compactar(lista_de_caminhos_anexo, 'anexo_I_II')
-    
+
     return {
         "status_anexo": True
     } 
