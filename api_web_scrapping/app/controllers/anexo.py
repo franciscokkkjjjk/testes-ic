@@ -3,14 +3,12 @@ from bs4 import BeautifulSoup
 from models.arquivo import Arquivo
 import requests
 
-router = APIRouter(
-    prefix='/anexo'
-)
+routerAX = APIRouter()
 
 #TODO: tratar errors de arquivos
 
 # endpoint responsavel por baixar e compactar os Anexo 1 e 2 na forma de pdf, e depois armazenar na maquina
-@router.get('/download')
+@routerAX.get('/download')
 async def downloadAnexo(response: Response):
     arquivo = Arquivo()
     

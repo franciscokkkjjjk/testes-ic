@@ -11,10 +11,9 @@ models: Onde serão armazenados as classes do projeto
 Conrollers: definição de uma rota por arquivo com sua função 
 
 """
-from typing import Union
+
 from fastapi import FastAPI
 from rotas import anexo
-import requests
 
 app = FastAPI()
 
