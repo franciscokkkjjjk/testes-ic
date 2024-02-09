@@ -14,13 +14,13 @@
 
 ## Estrutura de arquivos implementada até agora
 ```
-/app - Armazena o código-fonte
+/app: Código-fonte do aplicativo.
 
-/app/controllers - Armazena funções que cada rota irá assumir e a define
+/app/controllers: Definição e funções de rotas.
 
-/app/funcoes - Armazena funções auxiliares utilizadas em todo o aplicativo ou em uma parte específica
+/app/funcoes: Funções auxiliares.
 
-/app/models - Armazena classes
+/app/models: Classes do aplicativo.
 
-/app/rotas - Unifica rotas antes de passá-las para o main vindas de múltiplos arquivos de controllers
+/app/rotas: Unificação de rotas de diferentes arquivos de controllers antes de serem passadas para o arquivo main.
 ```
