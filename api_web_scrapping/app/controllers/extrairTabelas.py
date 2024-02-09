@@ -28,5 +28,6 @@ async def extrairDados(nome_arquivo, paginas=None, paramsSubs: List[paramsSubsti
             else:
                 lista_de_tabelas = lista_de_tabelas.replace(paramsSubs.pesquisa, paramsSubs.substitui)
                 
-    arq.converte_csv(nome_arquivo, lista_de_tabelas)
+    caminho_absoluto_csv = arq.converte_csv(nome_arquivo, lista_de_tabelas)
+    arq.compactar(caminho_absoluto_csv, 'Teste_luis_francisco_brum_gomes')
     return {True}
