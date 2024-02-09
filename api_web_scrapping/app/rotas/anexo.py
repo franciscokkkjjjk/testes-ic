@@ -1,7 +1,8 @@
 from fastapi import APIRouter
-from controllers import anexo, extrairTabelas 
+from controllers import downloadAnexo, extrairTabelas, substituirNomeclaturaTabela 
 
 router = APIRouter()
-
-router.include_router(router=anexo.routerAX, prefix='/anexo')
-router.include_router(router=extrairTabelas.routerED, prefix='/anexo')
+prefixo = '/anexo'
+router.include_router(router=downloadAnexo.routerDW, prefix=prefixo)
+router.include_router(router=extrairTabelas.routerED, prefix=prefixo)
+router.include_router(router=substituirNomeclaturaTabela.routerSNT, prefix=prefixo)

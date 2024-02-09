@@ -1,4 +1,4 @@
-from typing import Iterable, Union
+from typing import Iterable, Union, Dict, List, Any
 from zipfile import ZipFile
 from tabula import read_pdf
 import pandas
@@ -25,11 +25,6 @@ class Arquivo:
         lista_de_tabelas = read_pdf(self.caminho_padrao_arquivo + nome_pdf + '.pdf', pages=paginas)
         return lista_de_tabelas
     
-    def converte_csv(self, nome_csv, nome_pdf: str, paginas: Union[str, int, Iterable[int], None] = None):
-        lista_de_tabelas = self.ler_pdf(nome_pdf=nome_pdf, paginas=paginas)
-        if len(lista_de_tabelas) > 0:
-            lista_de_tabelas = pandas.concat(lista_de_tabelas)
-        if len(lista_de_tabelas) == 0:
-            return None
+    def converte_csv(self, nome_csv: str, lista_de_tabelas: Union[List[pandas.DataFrame] | Dict[str, Any]]):
         lista_de_tabelas.to_csv(os.path.join(self.caminho_padrao_arquivo, nome_csv + '.csv'), index=False)
         return lista_de_tabelas

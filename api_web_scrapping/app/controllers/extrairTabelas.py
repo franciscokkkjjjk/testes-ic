@@ -1,10 +1,25 @@
+from typing import List
 from fastapi import APIRouter
 from models.arquivo import Arquivo
+from pydantic import BaseModel
+import pandas
 
 routerED = APIRouter()
 
+class paramsSubstituicao(BaseModel):
+    pesquisa: str
+    substitui: str 
+
 @routerED.get('/extrairTabelas/{nome_arquivo}')
-async def extrairDados(nome_arquivo, paginas):
+async def extrairDados(nome_arquivo, paginas=None, paramsSubs: paramsSubstituicao = None):
     arq = Arquivo()
-    arq.converte_csv(nome_arquivo, nome_arquivo, paginas=paginas)
+    lista_de_tabelas = arq.ler_pdf(nome_pdf=nome_arquivo, paginas=paginas)
+    if len(lista_de_tabelas) > 0:
+        lista_de_tabelas = pandas.concat(lista_de_tabelas)
+    if len(lista_de_tabelas) == 0:
+        return {
+            'mensagem': 'Nenhuma tabela foi encontrada.'
+        }   
+    print(lista_de_tabelas)
+    arq.converte_csv(nome_arquivo, lista_de_tabelas)
     return {True}
