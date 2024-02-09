@@ -1,6 +1,7 @@
 from typing import Iterable, Union, Dict, List, Any
 from zipfile import ZipFile
 from tabula import read_pdf
+from pypdf import PdfReader 
 import pandas
 import os
 import requests
@@ -28,7 +29,17 @@ class Arquivo:
         lista_de_tabelas = read_pdf(self.caminho_padrao_arquivo + nome_pdf + '.pdf', pages=paginas)
         return lista_de_tabelas
     
+    def ler_pdf_text(self, nome_pdf: str, num_maximo_paginas: Union[int, str] = 'all'):
+        pdf_lido = PdfReader(self.caminho_padrao_arquivo + f'{nome_pdf}.pdf')
+        pag = {}
+        for index, paginas in enumerate(pdf_lido.pages, 1):
+            pag[index] = paginas.extract_text()
+            if(index == num_maximo_paginas):
+                break
+        return pag
+    
     def converte_csv(self, nome_csv: str, lista_de_tabelas: Union[List[pandas.DataFrame], Dict[str, Any]]):
         caminho_absoluto_csv = os.path.join(self.caminho_padrao_arquivo, nome_csv + '.csv')
         lista_de_tabelas.to_csv(caminho_absoluto_csv, index=False)
         return caminho_absoluto_csv
+    
