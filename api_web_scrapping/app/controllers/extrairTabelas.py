@@ -21,7 +21,6 @@ async def extrairDados(nome_arquivo, paginas=None):
     lista_de_abreviacoes = ['OD', 'AMB']
     for abreviacao in lista_de_abreviacoes:
         siginificado = busca_sig_abreviacao_tabela(
-            abreviacao=abreviacao,
             parametro_de_busca=f'{abreviacao}: Seg.',
             pagina=pdf_text[3]
         )

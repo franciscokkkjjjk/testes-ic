@@ -1,4 +1,4 @@
-def busca_sig_abreviacao_tabela(abreviacao: str, parametro_de_busca: str, pagina: str):
+def busca_sig_abreviacao_tabela(parametro_de_busca: str, pagina: str):
     quantidade_letras_parametro = len(parametro_de_busca)
     num = pagina.find(parametro_de_busca)
     str_temp = pagina[num]
