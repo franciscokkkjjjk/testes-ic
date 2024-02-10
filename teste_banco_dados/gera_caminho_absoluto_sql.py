@@ -26,14 +26,14 @@ lista_de_consultas = ['all', '2022', '2023']
 
 
 for index, arquivos_consulta in enumerate(lista_de_consultas):
-    arquivos_path = arquivo_sql_path[index].replace('/', '\\')
+    arquivos_path = arquivo_sql_path[index].replace('\\', '/')
     print(arquivos_path)
     with open(arquivos_path, 'r') as f:
                 conteudo_sql = f.read()
                 conteudo_substituido = conteudo_sql
                 for index_mandatorio, path_csv in enumerate(arquivo_csv_path[arquivos_consulta], 1):
-                    path_csv = path_csv.replace('/', '\\')
+                    path_csv = path_csv.replace('\\', '/')
                     conteudo_substituido = conteudo_substituido.replace('-' + str(index_mandatorio), path_csv)
-                print(conteudo_substituido)
+
     with open(arquivos_path, 'w') as f:
         f.write(conteudo_substituido)
