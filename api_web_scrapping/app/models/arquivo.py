@@ -9,6 +9,7 @@ import requests
 class Arquivo:
     def __init__(self) -> None:
         self.caminho_padrao_arquivo = os.path.abspath('.') + '/uploads/'
+        self.caminho_padrao_arquivo = self.caminho_padrao_arquivo.replace('\\', '/') 
         
     def download(self, url: str) -> Union[str, None]: 
         request_anexo = requests.get(url)
