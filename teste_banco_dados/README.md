@@ -1,0 +1,2 @@
+## Criando caminho absoluto dos arquivos importa_*.sql
+O arquivo `gera_caminho_absoluto.py`, gera o caminho absoluto dos arquivos de import, de acordo com o sistema operacional e o local onde esse projeto está instalado. Basta executa-lo e ele fará todo o trabalho de arrumar os caminhos dos arquivos.
