@@ -14,7 +14,6 @@
         }),
       });
       let res = await req.json();
-      // console.log(res);
       return res;
     } catch (error) {
       console.error('Não foi possivel enviar o formulário:', error);
