@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "933075d2-6d60-4b7d-8eb9-e5a0ae514f02",
+		"_postman_id": "e8e30eb3-1d9e-4a34-a4d2-9e6a27a847ec",
 		"name": "teste-ic-luis-gomes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25292061"
@@ -8,21 +8,9 @@
 	"item": [
 		{
 			"name": "anexo/extrairTabelas/",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    {\n        \"pesquisa\": \"AMB\",\n        \"substitui\": \"Ambulatorial\"\n    },\n    {\n        \"pesquisa\": \"OD\",\n        \"substitui\": \"Odontológica\"\n    },\n    {\n        \"pesquisa\": \"REF\",\n        \"substitui\": \"NonAtividade\"\n    }\n]\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{base_url}}/anexo/extrairTabelas/",
 					"host": [
@@ -64,11 +52,8 @@
 		},
 		{
 			"name": "pesquisa/",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -91,7 +76,7 @@
 					"query": [
 						{
 							"key": "",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
