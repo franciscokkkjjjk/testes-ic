@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `dados_cadastrais` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `dados_cadastrais`;
 CREATE TABLE `demonstracoes_contabeis` (
 	`data` DATE NOT NULL,
