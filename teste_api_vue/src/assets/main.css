@@ -1,10 +1,29 @@
 @import './base.css';
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9e9e9e83; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 #app {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   font-weight: normal;
+  overflow: hidden;
+  max-height: 100vh;
 }
 
 a,

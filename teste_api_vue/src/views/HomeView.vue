@@ -40,10 +40,42 @@
 
 <template>
   <main>
-    <form @submit.prevent="enviarFormulario">
-      <input v-model="text_input" />
-      <button type="submit">Pesquisar</button>
+    <form class="form-area" @submit.prevent="enviarFormulario">
+      <input class="input-form" v-model="text_input" placeholder="pesquisar" />
+      <button class="button-form" type="submit">Pesquisar</button>
     </form>
     <TabelaRegistros :dados="dados_tabela" :loading="loading" />
   </main>
 </template>
+
+<style scoped>
+  main {
+    overflow: auto;
+    padding-left: 10px;
+  }
+  .form-area {
+    padding: 20px 5px;
+  }
+  .input-form {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-background-soft);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .input-form:hover {
+    background-color: var(--color-background-mute);
+  }
+  .button-form {
+    border: none;
+    padding: 5px 10px;
+    color: var(--color-text);
+    background-color: var(--color-background-soft);
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  .button-form:hover {
+    background-color: var(--color-background-mute);
+    cursor: pointer;
+  }
+</style>
