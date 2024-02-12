@@ -8,8 +8,9 @@ class CorpoPesquisa(BaseModel):
     palavras_chaves: List[str]
     
 
-@routerBD.get('/')
+@routerBD.post('/')
 def buscarDados(request: CorpoPesquisa):
     busca = Busca()
     items = busca.busca_dados_relevantes(request.palavras_chaves)
+    print(items)
     return items

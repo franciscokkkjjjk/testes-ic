@@ -17,7 +17,7 @@ class Busca:
                         continue
                 for index_conteudo, conteudo_linha in  enumerate(lista_conteudo_linha):
                     if isinstance(linhas[index_linha-1], dict):
-                        linhas[index_linha-1][cabecalho[index_conteudo]] = conteudo_linha
+                        linhas[index_linha-1][cabecalho[index_conteudo].lower()] = conteudo_linha
                         continue
                     dic_conteudo = dict()
                     dic_conteudo[cabecalho[index_conteudo]] = conteudo_linha
@@ -26,6 +26,7 @@ class Busca:
         
     def busca_dados_relevantes(self, palavras_chaves: List[str]):
         dados_csv = self.define_items()
+        print(palavras_chaves)
         resultados = []
         for indice, dicionario in enumerate(dados_csv):
             contagem = 0
