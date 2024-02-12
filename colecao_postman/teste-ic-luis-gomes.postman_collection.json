@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "933075d2-6d60-4b7d-8eb9-e5a0ae514f02",
+		"name": "teste-ic-luis-gomes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25292061"
+	},
+	"item": [
+		{
+			"name": "anexo/extrairTabelas/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"pesquisa\": \"AMB\",\n        \"substitui\": \"Ambulatorial\"\n    },\n    {\n        \"pesquisa\": \"OD\",\n        \"substitui\": \"Odontológica\"\n    },\n    {\n        \"pesquisa\": \"REF\",\n        \"substitui\": \"NonAtividade\"\n    }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/anexo/extrairTabelas/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"anexo",
+						"extrairTabelas",
+						""
+					],
+					"query": [
+						{
+							"key": "paginas",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "anexos/download",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/anexos/download",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"anexos",
+						"download"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pesquisa/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"palavras_chaves\": [\r\n        \"caixa\", \"empregados\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/pesquisa/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pesquisa",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
