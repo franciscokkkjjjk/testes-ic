@@ -12,5 +12,5 @@ class CorpoPesquisa(BaseModel):
 def buscarDados(request: CorpoPesquisa):
     busca = Busca()
     items = busca.busca_dados_relevantes(request.palavras_chaves)
-    print(items)
+    
     return items

@@ -27,7 +27,7 @@ lista_de_consultas = ['all', '2022', '2023']
 
 for index, arquivos_consulta in enumerate(lista_de_consultas):
     arquivos_path = arquivo_sql_path[index].replace('\\', '/')
-    print(arquivos_path)
+
     with open(arquivos_path, 'r') as f:
                 conteudo_sql = f.read()
                 conteudo_substituido = conteudo_sql

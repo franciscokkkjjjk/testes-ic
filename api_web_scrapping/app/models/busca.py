@@ -26,7 +26,7 @@ class Busca:
         
     def busca_dados_relevantes(self, palavras_chaves: List[str]):
         dados_csv = self.define_items()
-        print(palavras_chaves)
+        
         resultados = []
         for indice, dicionario in enumerate(dados_csv):
             contagem = 0
