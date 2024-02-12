@@ -7,7 +7,7 @@
 + [Pandas](https://pandas.pydata.org/docs/user_guide/)
 + [tabula-py](https://tabula-py.readthedocs.io/en/latest/) - esse framework depende do java, então é necessário que ele esteja instalado.
 
-## instalação
+## Instalação
 ### Backend
 ```
     cd api_web_scrapping
@@ -18,13 +18,13 @@
     cd teste_api_vue
     npm install
 ```
-## start backend
+## Start Backend
 ```
     cd api_web_scrapping/app
     uvicorn main:app --reload
 ```
 
-## start frontend
+## Start Frontend
 ```
     npm run dev
 ```
