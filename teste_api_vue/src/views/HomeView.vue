@@ -1,6 +1,5 @@
 <script setup>
   import TabelaRegistros from '@/components/TabelaRegistros.vue';
-  import TextInput from '@/components/TextInput.vue';
   import { ref } from 'vue';
 
   const gerar_dados_pesquisa = async (palavras_chaves) => {
@@ -42,7 +41,7 @@
 <template>
   <main>
     <form @submit.prevent="enviarFormulario">
-      <TextInput :modelValue="text_input" v-model="text_input" />
+      <input v-model="text_input" />
       <button type="submit">Pesquisar</button>
     </form>
     <TabelaRegistros :dados="dados_tabela" :loading="loading" />
